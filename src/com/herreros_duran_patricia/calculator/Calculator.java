@@ -1,12 +1,6 @@
 package com.herreros_duran_patricia.calculator;
 
 
-/**
- *
- * @author Patri
- * @version 2.0
- */
-
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Font;
@@ -17,10 +11,11 @@ import java.util.function.Consumer;
 import java.util.regex.Pattern;
 import javax.swing.*;
 
-/** 
- * 
- * clase Calculator
+/**
+ *
+ * @author Patri
  */
+
 public class Calculator {
 
     /**
@@ -485,9 +480,7 @@ public class Calculator {
         this.val = val;
     }
     
-    /**
-     * atributos estáticos constantes
-    */
+
     private static final int WINDOW_WIDTH = 410;
     private static final int WINDOW_HEIGHT = 600;
     private static final int BUTTON_WIDTH = 80;
@@ -495,9 +488,7 @@ public class Calculator {
     private static final int MARGIN_X = 20;
     private static final int MARGIN_Y = 60;
     
-    /**
-     * atributos privados
-     */
+
 
     private JFrame ventana; // Main ventana
     private JComboBox<String> comboCalcType, comboTheme;
@@ -547,14 +538,8 @@ public class Calculator {
     *
     */
 
-    /**
-     * constructor de la clase sin parámetros
-     */
+
     public Calculator() {
-        
-        /**
-         * metodo operativa ventana
-         */
         
         operativa_ventana();
 
@@ -915,24 +900,13 @@ public class Calculator {
         ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Close button clicked? = End The process
         ventana.setVisible(true);
     }
-    /**
-     * método privado de operativa ventana
-     * @throws HeadlessException 
-     */
+
     private void operativa_ventana() throws HeadlessException {
         setVentana(new JFrame("Calculator"));
         getVentana().setSize(getWINDOW_WIDTH(), getWINDOW_HEIGHT());
         getVentana().setLocationRelativeTo(null); // Move ventana to center
     }
-    /**
-     * método privado con parámetros
-     * @param items
-     * @param x
-     * @param y
-     * @param toolTip
-     * @param consumerEvent
-     * @return combo
-     */
+
     private JComboBox<String> initCombo(String[] items, int x, int y, String toolTip, Consumer consumerEvent) {
         JComboBox<String> combo = new JComboBox<>(items);
         combo.setBounds(x, y, 140, 25);
@@ -943,14 +917,7 @@ public class Calculator {
 
         return combo;
     }
-    /**
-     * método privado con parámetros para los botones
-     * @param label
-     * @param x
-     * @param y
-     * @param event
-     * @return btn
-     */
+
     private JButton initBtn(String label, int x, int y, ActionListener event) {
         JButton btn = new JButton(label);
         btn.setBounds(x, y, getBUTTON_WIDTH(), getBUTTON_HEIGHT());
@@ -961,13 +928,14 @@ public class Calculator {
 
         return btn;
     }
+
     /**
-     * método público con parámetros para funcionamiento de operaciones
+     * método público con parámetros
      * @param x
      * @param input
      * @param opt
      * @param cantidad
-     * @return y
+     * @return
      */
     public double calc(double x, String input, char opt, float cantidad) {
         getInText().setFont(getInText().getFont().deriveFont(Font.PLAIN));
@@ -990,15 +958,11 @@ public class Calculator {
                 return y;
         }
     }
-    /**
-     * método privado sin parámetros
-     */
+
     private void repaintFont() {
         getInText().setFont(getInText().getFont().deriveFont(Font.PLAIN));
     }
-    /**
-     * interfaz consumer para el tipo de calculadora
-     */
+ 
     private Consumer<ItemEvent> calcTypeSwitchEventConsumer = event -> {
         if (event.getStateChange() != ItemEvent.SELECTED) return;
 
@@ -1018,9 +982,7 @@ public class Calculator {
                 break;
         }
     };
-    /**
-     * interfaz consumer para la estética de la calculadora
-     */
+
     private Consumer<ItemEvent> themeSwitchEventConsumer = event -> {
         if (event.getStateChange() != ItemEvent.SELECTED) return;
 
@@ -1100,9 +1062,10 @@ public class Calculator {
                 break;
         }
     };
+    
     /**
-     * método main
-     * @param args 
+     *
+     * @param args
      */
     public static void main(String[] args) {
         new Calculator();
